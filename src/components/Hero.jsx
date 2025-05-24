@@ -74,7 +74,7 @@ const Hero = () => {
             style={{ 
               backgroundImage: `url(${image})`,
               backgroundPosition: 'center center',
-              backgroundSize: 'cover',
+              backgroundSize: isMobile ? 'cover' : 'cover',
               backgroundRepeat: 'no-repeat',
               height: '100%',
               width: '100%'
@@ -86,34 +86,28 @@ const Hero = () => {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Content Container - Bottom Center */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12 lg:pb-16">
-          <div className="text-center">
-            {!isMobile && (
-              <>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-                  Welcome to Our Website
-                </h1>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl mx-auto mb-6">
-                  Discover amazing features and services...
-                </p>
-              </>
-            )}
-            <div className="flex justify-center">
-              <button 
-                className={`${isMobile ? 'px-6 py-2' : 'px-8 py-3'} bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500`}
-                aria-label="Get started"
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
-        </div>
+      {/* Content - Responsive positioning */}
+      <div className={`relative z-10 h-full flex flex-col ${isMobile ? 'items-center justify-end pb-12' : 'items-end justify-center'} px-4 sm:px-6 lg:px-8`}>
+        {!isMobile && (
+          <>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
+              Welcome to Our Website
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white max-w-xs sm:max-w-md md:max-w-2xl mb-6 sm:mb-8">
+              Discover amazing features and services...
+            </p>
+          </>
+        )}
+        <button 
+          className={`${isMobile ? 'px-4 py-2 text-sm' : 'px-6 sm:px-8 py-2 sm:py-3 text-base'} bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500`}
+          aria-label="Get started"
+        >
+          Get Started
+        </button>
       </div>
 
-      {/* Slide indicators */}
-      <div className={`absolute ${isMobile ? 'bottom-20' : 'bottom-28'} left-0 right-0 flex justify-center space-x-2 z-10`}>
+      {/* Slide indicators - Responsive positioning */}
+      <div className={`absolute ${isMobile ? 'bottom-4' : 'bottom-8'} left-0 right-0 flex justify-center space-x-2 z-10`}>
         {backgroundImages.map((_, index) => (
           <button
             key={index}
