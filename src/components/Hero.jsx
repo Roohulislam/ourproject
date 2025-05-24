@@ -87,7 +87,7 @@ const Hero = () => {
       </div>
 
       {/* Content - Responsive positioning */}
-      <div className={`relative z-10 h-full flex flex-col ${isMobile ? 'items-center justify-end pb-12' : 'items-end justify-center'} px-4 sm:px-6 lg:px-8`}>
+      <div className={`relative z-10 h-full flex flex-col ${isMobile ? 'items-center justify-end pb-32' : 'items-end justify-center'} px-4 sm:px-6 lg:px-8`}>
         {!isMobile && (
           <>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
@@ -99,7 +99,7 @@ const Hero = () => {
           </>
         )}
         <button 
-          className={`${isMobile ? 'px-4 py-2 text-sm' : 'px-6 sm:px-8 py-2 sm:py-3 text-base'} bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500`}
+          className={`${isMobile ? 'px-4 py-2 text-sm ' : 'px-6 sm:px-8 py-2 sm:py-3 text-base'} bg-blue-600 hover:bg-blue-700 text-white  font-semibold rounded-lg transition-all duration-300 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500`}
           aria-label="Get started"
         >
           Get Started
