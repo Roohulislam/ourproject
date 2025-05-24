@@ -109,11 +109,11 @@ const Hero = () => {
             </>
           )}
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center sm:justify-end">
+          <div className="flex flex-col sm:flex-row gap-2 justify-center sm:justify-end">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 sm:px-8 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+              className="px-6 py-1 sm:px-8 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
             >
               Get Started
             </motion.button>
@@ -121,7 +121,7 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+                className="px-6 py-1 sm:px-8 sm:py-4 bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
               >
                 Contact Team
               </motion.button>
