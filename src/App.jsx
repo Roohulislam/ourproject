@@ -1,5 +1,5 @@
 import './App.css'
-import AboutUs from './components/Aboutus'
+import AboutUs from './components/AboutUs'
 import ContactUs from './components/ContactUs'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer/Footer'
