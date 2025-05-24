@@ -1,0 +1,164 @@
+[
+  {
+    "id": "1",
+    "title": "Engine Oil Zic Hiflo 20w50 4ltr",
+    "description": "ZIC Hiflo 20W-50 is a popular choice for engine oil, offering reliable protection and performance for a variety of vehicles. This 4-liter container provides ample oil for most vehicle changes.",
+    "img": "/images/img1.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Honda Long Life Coolant 1 Ltr.",
+    "description": "Honda Long Life Coolant is a high-quality antifreeze and coolant specifically formulated for Honda vehicles. It's designed to provide optimal protection for your car's cooling system under various conditions.",
+    "img": "/images/img2.jpg"
+  },
+  {
+    "id": "3",
+    "title": "Power Steering Fluid STP 350 ml",
+    "description": "STP Power Steering Fluid is a high-quality product designed to protect and maintain the performance of your vehicle's power steering system. Here's a brief overview",
+    "img": "/images/img3.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Toyota Yaris Engine Oil Taglon 5w30 Genuine 3.5 litre.",
+    "description": "Toyota Taglon 5W-30 is the recommended engine oil for many Toyota Yaris models. It's a genuine Toyota product, designed specifically to meet the requirements of their engines.",
+    "img": "/images/img4.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Engine Oil Toyota Taglon supreme 0w20 Genuine 4.2ltr.",
+    "description": "Toyota Taglon Supreme 0W-20 is a high-quality, fully synthetic engine oil specifically designed for Toyota vehicles.It's crafted to meet the stringent demands of modern engines, providing exceptional performance and protection",
+    "img": "/images/img5.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Toyota Manual Transmission Gear Oil Genuine.",
+    "description": "Toyota Genuine Manual Transmission Gear Oil is specifically formulated to provide optimal performance and protection for Toyota vehicles equipped with manual transmissions.t's designed to handle the specific stresses and loads placed on manual transmission gears.",
+    "img": "/images/img6.jpg"
+  },
+  {
+    "id": "7",
+    "title": "Toyota Automatic Transmission Fluid TIV Genuine.4 litre",
+    "description": "Toyota Automatic Transmission Fluid T-IV is a high-quality fluid specifically designed for Toyota vehicles equipped with automatic transmissions. It's crucial to use the correct fluid to ensure optimal performance, smooth shifting, and longevity of your transmission",
+    "img": "/images/img7.jpg"
+  },
+  {
+    "id": "8",
+    "title": "Engine Oil Zic X7 10w40 4Ltr.",
+    "description": "ZIC X7 10W-40 is a high-performance engine oil designed to provide exceptional protection and performance for your vehicle. It's formulated with advanced VHVI (Very High Viscosity Index) base oil, which helps to maintain oil viscosity across a wide range of temperatures.",
+    "img": "/images/img8.jpg"
+  },
+  {
+    "id": "9",
+    "title": "Toyota Gear Oil Differential 85w90 Genuine",
+    "description": "Toyota Genuine Gear Oil Differential 85W-90 is specifically formulated for Toyota vehicles to ensure optimal performance and protection of your differential. It's designed to handle the specific stresses and loads placed on differential gears",
+    "img": "/images/img9.jpg"
+  },
+  {
+    "id": "10",
+    "title": "Gear Oil Caltex 1 ltr.",
+    "description": "Gear oil is a lubricant specifically designed for gearboxes, differentials, and other components that use gears.",
+    "img": "/images/img10.jpg"
+  },
+  {
+    "id": "11",
+    "title": "Gear Oil Kixx Automatic Transmission Fluid 1 litre",
+    "description": "Kixx ATF is a high-quality transmission fluid designed to provide optimal performance and protection for automatic transmissions",
+    "img": "/images/img11.jpg"
+  },
+  {
+    "id": "12",
+    "title": "Engine Oil Kixx G1 20w50 4Ltr.",
+    "description": "Kixx G1 20W-50 is a 4-liter engine oil designed for gasoline-powered vehicles. It's formulated with high-quality base oils and advanced additives to provide excellent performance and protection",
+    "img": "/images/img12.jpg"
+  },
+  {
+    "id": "13",
+    "title": "Engine Oil Toyota Petron 10w30 Genuine 4 Litre",
+    "description": "Enhanced performance Optimizes engine power and responsiveness, delivering a smooth and efficient driving experience",
+    "img": "/images/img13.jpg"
+  },
+  {
+    "id": "14",
+    "title": "Engine Oil Caltex Havoline 20w50 4lItre",
+    "description": "20W-50 viscosity ensures adequate protection in both cold and hot temperatures",
+    "img": "/images/img14.jpg"
+  },
+  {
+    "id": "15",
+    "title": "Engine Oil Zic 20w50 4Litre",
+    "description": "20W-50 viscosity provides excellent protection at both low and high",
+    "img": "/images/img15.jpg"
+  },
+  {
+    "id": "16",
+    "title": "Engine Oil Toyota Taglon 1Litre 5W50 Genuine",
+    "description": "Improves engine responsiveness, fuel efficiency, and overall power output.",
+    "img": "/images/img16.jpg"
+  },
+  {
+    "id": "17",
+    "title": "Brake Oil Dot 3 Guard",
+    "description": "Ensures consistent and reliable braking under all driving conditions.",
+    "img": "/images/img17.jpg"
+  },
+  {
+    "id": "18",
+    "title": "7CF Anti-Rust Spray Lubricant (235ml)",
+    "description": "7CF Anti-Rust Spray Lubricant (235ml) - New",
+    "img": "/images/img21.jpg"
+  },
+  {
+    "id": "19",
+    "title": "Toyota Petron 20W-50 Gasoline And Diesel Engine Oil (4L)",
+    "description": "Toyota Petron 20W-50 Gasoline And Diesel Engine Oil (4L) - New",
+    "img": "/images/img22.jpg"
+  },
+  {
+    "id": "20",
+    "title": "Kixx HD1 API CI-4 15W-40 (20L) High Performance Diesel Engine Oil API CI-4/SL 15W-40 Semi Synthetic",
+    "description": "Kixx HD1 API CI-4 15W-40 (20L) High Performance Diesel Engine Oil API CI-4/SL 15W-40 Semi Synthetic -",
+    "img": "/src/assets/images/img24.jpg"
+  },
+  {
+    "id": "21",
+    "title": "1.Kixx HD 15W-40 API CG-4 (20L) Ultra Modern Diesel Engine Oil API CG-4 15W-40 Semi Synthetic",
+    "description": "Kixx HD 15W-40 API CG-4 (20L) Ultra Modern Diesel Engine Oil API CG-4 15W-40 Semi Synthetic - New",
+    "img": "/images/img25.jpg"
+  },
+  {
+    "id": "22",
+    "title": "Shell Helix Engine Oil 5w-30 4L",
+    "description": "Shell Helix Engine Oil 5w-30 4L - New",
+    "img": "/images/img27.jpg"
+  },
+  {
+    "id": "23",
+    "title": "HEAVY DUTY MOTOR OILS",
+    "description": "Peserve fuel economy, reduce operating costs, and increase engine durability.",
+    "img": "/images/img31.jpg"
+  },
+  {
+    "id": "24",
+    "title": "GREASES",
+    "description": "Provide high performance and long-life protection in all conditions.",
+    "img": "/images/img32.jpg"
+  },
+  {
+    "id": "25",
+    "title": "COOLANTS",
+    "description": "Keep your engine operating at its optimum temperature.",
+    "img": "/images/img33.jpg"
+  },
+  {
+    "id": "26",
+    "title": "GTX",
+    "description": "Keep your engine operating at its optimum temperature.",
+    "img": "/images/img34.jpg"
+  },
+  {
+    "id": "27",
+    "title": "GEAR OILS",
+    "description": "Engineered for reliable protection even under high speed and shock loading for your vital gear parts.",
+    "img": "/images/img35.jpg"
+  }
+]
