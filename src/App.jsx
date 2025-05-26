@@ -13,6 +13,7 @@ import Services from './components/Services/Service'
 import Whatsapp from './components/Whatsapp'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'
+import NotFound from './components/NotFound'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
   <Route path="/locations" element={<Location/>} />
   <Route path="/aboutus" element={<AboutUs/>} />
   <Route path="/contactus" element={<ContactUs/>} />
+  <Route path="*" element={<NotFound/> } />
     {/* <FAQ/>
     <Team/> */}
     {/* <NotFound/> */}
