@@ -58,7 +58,7 @@ const Hero = () => {
   // Dynamic height calculation
   const heroHeight = useMemo(() => {
     if (isMobile) return '50vh';
-    if (isTablet) return '10vh';
+    if (isTablet) return '100vh';
     return '110vh';
   }, [isMobile, isTablet]);
 

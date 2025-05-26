@@ -74,37 +74,37 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:ml-10 lg:ml-20 md:flex md:space-x-2">
               <a
-                href="#"
+                href="/"
                 className="text-white hover:bg-white hover:text-[#004aad] px-3 py-2 rounded-md text-sm font-medium"
               >
                 {currentNavItems.home}
               </a>
               <a
-                href="#"
+                href="/products"
                 className="text-white hover:bg-white hover:text-[#004aad] px-3 py-2 rounded-md text-sm font-medium"
               >
                 {currentNavItems.products}
               </a>
               <a
-                href="#"
+                href="/services"
                 className="text-white hover:bg-white hover:text-[#004aad] px-3 py-2 rounded-md text-sm font-medium"
               >
                 {currentNavItems.services}
               </a>
               <a
-                href="#"
+                href="/locations"
                 className="text-white hover:bg-white hover:text-[#004aad] px-3 py-2 rounded-md text-sm font-medium"
               >
                 {currentNavItems.locations}
               </a>
               <a
-                href="#"
+                href="/aboutus"
                 className="text-white hover:bg-white hover:text-[#004aad] px-3 py-2 rounded-md text-sm font-medium"
               >
                 {currentNavItems.about}
               </a>
               <a
-                href="#"
+                href="contactus"
                 className="text-white hover:bg-white hover:text-[#004aad] px-3 py-2 rounded-md text-sm font-medium"
               >
                 {currentNavItems.contact}
@@ -168,37 +168,37 @@ const Navbar = () => {
           {/* Navigation links */}
           <div className="flex-1 overflow-y-auto p-2 space-y-1">
             <a
-              href="#"
+              href="/"
               className="text-black hover:bg-gray-300 block px-3 py-2 rounded-md text-base font-medium"
             >
               {currentNavItems.home}
             </a>
             <a
-              href="#"
+              href="products"
               className="text-black hover:bg-gray-300 block px-3 py-2 rounded-md text-base font-medium"
             >
               {currentNavItems.products}
             </a>
             <a
-              href="#"
+              href="services"
               className="text-black hover:bg-gray-300 block px-3 py-2 rounded-md text-base font-medium"
             >
               {currentNavItems.services}
             </a>
             <a
-              href="#"
+              href="locations"
               className="text-black hover:bg-gray-300 block px-3 py-2 rounded-md text-base font-medium"
             >
               {currentNavItems.locations}
             </a>
             <a
-              href="#"
+              href="aboutus"
               className="text-black hover:bg-gray-300 block px-3 py-2 rounded-md text-base font-medium"
             >
               {currentNavItems.about}
             </a>
             <a
-              href="#"
+              href="contactus"
               className="text-black hover:bg-gray-300 block px-3 py-2 rounded-md text-base font-medium"
             >
               {currentNavItems.contact}
