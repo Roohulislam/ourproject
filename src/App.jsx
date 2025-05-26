@@ -1,20 +1,33 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { allroute } from './Routes/allroute';
-import Navbar from './components/Navbar/Navbar';
+import './App.css';
+import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
 import Footer from './components/Footer/Footer';
+import Location from './components/Location';
+import Navbar from './components/Navbar/Navbar';
+import Products from './components/Products/Products';
+import Services from './components/Services/Service';
+import Whatsapp from './components/Whatsapp';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+// import NotFound from './components/NotFound';
 
 function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <div className="min-h-screen flex flex-col">
+    <BrowserRouter>
+      <div className="app-container">
         <Navbar />
-        <main className="flex-grow">
+        <main className="main-content">
           <Routes>
-            {allroute.map((route, index) => (
-              <Route key={index} path={route.path} element={route.element} />
-            ))}
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/locations" element={<Location />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </main>
+        <Whatsapp />
         <Footer />
       </div>
     </BrowserRouter>
