@@ -18,10 +18,8 @@ export default defineConfig({
     },
   },
   server: {
-    host: true, // Allows access from your network
-    port: 3000, // Fixed port
-    strictPort: true, // Don't try other ports
-    open: true, // Automatically open browser
-    historyApiFallback: true,
+    historyApiFallback: {
+      disableDotRule: true,
+    },
   },
 });
