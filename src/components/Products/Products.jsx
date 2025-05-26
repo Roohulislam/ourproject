@@ -114,7 +114,7 @@ const Products = () => {
   }
 
   return (
-    <div className="bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
+    <div id="products" className="bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header with sort options */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">

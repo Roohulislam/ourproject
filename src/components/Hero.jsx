@@ -64,7 +64,7 @@ const Hero = () => {
 
   return (
     <section 
-      className="relative w-full mt-0.5 overflow-hidden"
+      className="home-page relative  w-full mt-0.5 overflow-hidden"
       style={{ height: heroHeight }}
       aria-label="Hero carousel"
     >
