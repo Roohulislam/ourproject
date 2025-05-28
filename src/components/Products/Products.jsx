@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FiChevronLeft, FiChevronRight, FiShoppingCart, FiHeart, FiShare2, FiEye } from 'react-icons/fi';
 import { FaStar, FaRegStar, FaStarHalfAlt } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -9,6 +10,7 @@ const Products = () => {
   const [loading, setLoading] = useState(true);
   const [wishlist, setWishlist] = useState([]);
   const [sortOption, setSortOption] = useState('featured');
+  const { t } = useTranslation();
 
   // Fetch products data
   useEffect(() => {
@@ -27,25 +29,25 @@ const Products = () => {
         setProducts(productsWithDetails);
         setLoading(false);
       } catch (error) {
-        console.error("Error loading products:", error);
+        console.error(t('products.errorLoading'), error);
         setLoading(false);
       }
     };
     
     fetchProducts();
-  }, []);
+  }, [t]);
 
   // Responsive products per page calculation
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
-        setProductsPerPage(3); // Show only 1 product on mobile
+        setProductsPerPage(3);
       } else if (window.innerWidth < 768) {
-        setProductsPerPage(2); // Show 2 products on small tablets
+        setProductsPerPage(2);
       } else if (window.innerWidth < 1024) {
-        setProductsPerPage(3); // Show 3 products on larger tablets
+        setProductsPerPage(3);
       } else {
-        setProductsPerPage(4); // Show 4 products on desktop
+        setProductsPerPage(4);
       }
       setCurrentPage(1);
     };
@@ -118,18 +120,18 @@ const Products = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header with sort options */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Our Products</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{t('products.title')}</h2>
           
           <div className="flex items-center gap-4">
-            <span className="text-xs sm:text-sm text-gray-600">Sort by:</span>
+            <span className="text-xs sm:text-sm text-gray-600">{t('products.sortBy')}</span>
             <select 
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
               className="border border-gray-300 rounded-md px-2 py-1 sm:px-3 sm:py-2 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
             >
-              <option value="featured">Featured</option>
-              <option value="rating">Customer Rating</option>
-              <option value="newest">Newest Arrivals</option>
+              <option value="featured">{t('products.sortOptions.featured')}</option>
+              <option value="rating">{t('products.sortOptions.rating')}</option>
+              <option value="newest">{t('products.sortOptions.newest')}</option>
             </select>
           </div>
         </div>
@@ -154,7 +156,7 @@ const Products = () => {
                 <div className="absolute top-2 left-2 flex gap-1">
                   {product.isNew && (
                     <span className="bg-blue-500 text-white text-[10px] sm:text-xs font-bold px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-full">
-                      NEW
+                      {t('products.newBadge')}
                     </span>
                   )}
                 </div>
@@ -164,14 +166,20 @@ const Products = () => {
                   <button 
                     onClick={() => toggleWishlist(product.id)}
                     className={`p-1.5 sm:p-2 rounded-full bg-white shadow-sm hover:bg-gray-100 ${wishlist.includes(product.id) ? 'text-red-500' : 'text-gray-700'}`}
-                    aria-label={wishlist.includes(product.id) ? "Remove from wishlist" : "Add to wishlist"}
+                    aria-label={wishlist.includes(product.id) ? t('products.removeFromWishlist') : t('products.addToWishlist')}
                   >
                     <FiHeart className="w-3 h-3 sm:w-4 sm:h-4" />
                   </button>
-                  <button className="p-1.5 sm:p-2 rounded-full bg-white shadow-sm hover:bg-gray-100 text-gray-700">
+                  <button 
+                    className="p-1.5 sm:p-2 rounded-full bg-white shadow-sm hover:bg-gray-100 text-gray-700"
+                    aria-label={t('products.share')}
+                  >
                     <FiShare2 className="w-3 h-3 sm:w-4 sm:h-4" />
                   </button>
-                  <button className="p-1.5 sm:p-2 rounded-full bg-white shadow-sm hover:bg-gray-100 text-gray-700">
+                  <button 
+                    className="p-1.5 sm:p-2 rounded-full bg-white shadow-sm hover:bg-gray-100 text-gray-700"
+                    aria-label={t('products.quickView')}
+                  >
                     <FiEye className="w-3 h-3 sm:w-4 sm:h-4" />
                   </button>
                 </div>
@@ -179,25 +187,35 @@ const Products = () => {
               
               {/* Product details */}
               <div className="p-3 sm:p-4">
-                <div className="flex justify-between items-start  mb-1">
-                  <h3 className="font-medium sm:font-semibold text-gray-900 text-sm sm:text-base line-clamp-1">{product.title}</h3>
+                <div className="flex justify-between items-start mb-1">
+                  <h3 className="font-medium sm:font-semibold text-gray-900 text-sm sm:text-base line-clamp-1">
+                    {product.title}
+                  </h3>
                   <div className="flex items-center gap-0.5">
                     {renderStars(product.rating)}
-                    <span className="text-[10px] sm:text-xs text-gray-500 ml-0.5">({product.reviewCount})</span>
+                    <span className="text-[10px] sm:text-xs text-gray-500 ml-0.5">
+                      ({product.reviewCount})
+                    </span>
                   </div>
                 </div>
-                <p className="text-gray-600 text-xs sm:text-sm line-clamp-2 mb-2 sm:mb-3">{product.description}</p>
+                <p className="text-gray-600 text-xs sm:text-sm line-clamp-2 mb-2 sm:mb-3">
+                  {product.description}
+                </p>
             
                 <div className="flex justify-end mt-2 sm:mt-3">
-                  <button className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm transition-colors">
+                  <button 
+                    className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm transition-colors"
+                    aria-label={t('products.addToCart')}
+                  >
                     <FiShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />
-                    <span>Add</span>
+                    <span>{t('products.add')}</span>
                   </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
+        
         {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex justify-center mt-8 sm:mt-10">
@@ -206,13 +224,12 @@ const Products = () => {
                 onClick={prevPage}
                 disabled={currentPage === 1}
                 className="p-1.5 sm:p-2 rounded-md border border-gray-300 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-                aria-label="Previous page"
+                aria-label={t('products.previousPage')}
               >
                 <FiChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
               
               {Array.from({ length: Math.min(5, totalPages) }).map((_, i) => {
-                // Show limited page numbers with ellipsis
                 let pageNum;
                 if (totalPages <= 5) {
                   pageNum = i + 1;
@@ -233,6 +250,7 @@ const Products = () => {
                         ? 'bg-blue-600 text-white' 
                         : 'border border-gray-300 hover:bg-gray-100'
                     }`}
+                    aria-label={t('products.goToPage', { page: pageNum })}
                   >
                     {pageNum}
                   </button>
@@ -251,6 +269,7 @@ const Products = () => {
                       ? 'bg-blue-600 text-white' 
                       : 'border border-gray-300 hover:bg-gray-100'
                   }`}
+                  aria-label={t('products.goToPage', { page: totalPages })}
                 >
                   {totalPages}
                 </button>
@@ -260,7 +279,7 @@ const Products = () => {
                 onClick={nextPage}
                 disabled={currentPage === totalPages}
                 className="p-1.5 sm:p-2 rounded-md border border-gray-300 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-                aria-label="Next page"
+                aria-label={t('products.nextPage')}
               >
                 <FiChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
@@ -270,8 +289,11 @@ const Products = () => {
 
         {/* View all button */}
         <div className="text-center mt-6 sm:mt-8">
-          <button className="px-4 py-2 sm:px-6 sm:py-2.5 bg-white border border-blue-600 text-blue-600 hover:bg-blue-50 rounded-md text-sm sm:text-base transition font-medium">
-            View All Products
+          <button 
+            className="px-4 py-2 sm:px-6 sm:py-2.5 bg-white border border-blue-600 text-blue-600 hover:bg-blue-50 rounded-md text-sm sm:text-base transition font-medium"
+            aria-label={t('products.viewAll')}
+          >
+            {t('products.viewAllProducts')}
           </button>
         </div>
       </div>

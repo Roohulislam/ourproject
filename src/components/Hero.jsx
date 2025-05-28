@@ -1,10 +1,12 @@
 import { useEffect, useState, useMemo } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(null);
   const [isTablet, setIsTablet] = useState(false);
+  const { t } = useTranslation();
 
   // Check for viewport on mount and resize
   useEffect(() => {
@@ -64,9 +66,9 @@ const Hero = () => {
 
   return (
     <section 
-      className="home-page relative  w-full mt-0.5 overflow-hidden"
+      className="home-page relative w-full mt-0.5 overflow-hidden"
       style={{ height: heroHeight }}
-      aria-label="Hero carousel"
+      aria-label={t('hero.ariaLabel')}
     >
       {/* Background images */}
       <div className="absolute inset-0 z-0">
@@ -101,10 +103,10 @@ const Hero = () => {
           {!isMobile && (
             <>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                Premium Lubricants &<br />Excavator Services
+                {t('hero.title')}
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl text-white max-w-2xl mx-auto sm:ml-auto mb-6 sm:mb-8">
-                Trusted oil solutions for automotive and industrial applications across Pakistan
+                {t('hero.subtitle')}
               </p>
             </>
           )}
@@ -115,7 +117,7 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
               className="px-6 py-1 sm:px-8 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
             >
-              Get Started
+              {t('hero.ctaPrimary')}
             </motion.button>
             {!isMobile && (
               <motion.button
@@ -123,7 +125,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-6 py-1 sm:px-8 sm:py-4 bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
               >
-                Contact Team
+                {t('hero.ctaSecondary')}
               </motion.button>
             )}
           </div>
@@ -141,7 +143,7 @@ const Hero = () => {
                 ? "bg-white " + (isMobile ? 'w-6' : 'w-8')
                 : "bg-white/50 hover:bg-white/75"
             }`}
-            aria-label={`Go to slide ${index + 1}`}
+            aria-label={t('hero.slideIndicator', { number: index + 1 })}
             aria-current={index === currentSlide}
           />
         ))}

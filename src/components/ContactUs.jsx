@@ -1,59 +1,62 @@
 import { motion } from "framer-motion";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaHardHat, FaTruck, FaWhatsapp } from "react-icons/fa";
 import { MdConstruction, MdSupportAgent } from "react-icons/md";
+import { useTranslation } from 'react-i18next';
 
 const ContactUs = () => {
+  const { t } = useTranslation();
+
   const contactMethods = [
     {
       icon: <FaPhone className="text-2xl text-blue-600" />,
-      title: "General Inquiries",
+      title: t('contact.generalInquiries'),
       contact: "+92 345 5000098",
-      subtitle: "Available 8:00 AM - 6:00 PM"
+      subtitle: t('contact.availableHours')
     },
     {
       icon: <FaWhatsapp className="text-2xl text-green-500" />,
-      title: "WhatsApp Support",
+      title: t('contact.whatsappSupport'),
       contact: "+92 345 5000098",
-      subtitle: "24/7 Chat Support"
+      subtitle: t('contact.chatSupport')
     },
     {
       icon: <FaEnvelope className="text-2xl text-blue-600" />,
-      title: "Email Us",
+      title: t('contact.emailUs'),
       contact: "info@abunaveed.com",
-      subtitle: "Response within 24 hours"
+      subtitle: t('contact.responseTime')
     },
     {
       icon: <FaMapMarkerAlt className="text-2xl text-blue-600" />,
-      title: "Visit Us",
-      contact: "Abu naveed oil Agency, Chilās, 05812",
-      subtitle: "Open Mon-Sat: 8AM-6PM"
+      title: t('contact.visitUs'),
+      contact: t('contact.address'),
+      subtitle: t('contact.officeHours')
     }
   ];
 
   const excavatorTeamContacts = [
     {
       icon: <MdConstruction className="text-2xl text-orange-500" />,
-      title: "Excavator Team Lead",
+      title: t('contact.excavatorLead'),
       contact: "+92 300 1234567",
-      subtitle: "Ali Khan - Site Operations"
+      subtitle: t('contact.siteOperations')
     },
     {
       icon: <FaHardHat className="text-2xl text-orange-500" />,
-      title: "Equipment Support",
+      title: t('contact.equipmentSupport'),
       contact: "+92 300 7654321",
-      subtitle: "Mechanical & Maintenance"
+      subtitle: t('contact.maintenance')
     },
     {
       icon: <FaTruck className="text-2xl text-orange-500" />,
-      title: "Bulk Fuel Delivery",
+      title: t('contact.fuelDelivery'),
       contact: "+92 300 9876543",
-      subtitle: "On-site fuel supply"
+      subtitle: t('contact.fuelSupply')
     },
     {
       icon: <MdSupportAgent className="text-2xl text-orange-500" />,
-      title: "24/7 Emergency",
+      title: t('contact.emergency'),
       contact: "+92 300 1122334",
-      subtitle: "After-hours excavator support"
+      subtitle: t('contact.afterHours')
     }
   ];
 
@@ -90,10 +93,10 @@ const ContactUs = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Contact <span className="text-blue-600">Abunaveed</span> Oil Agency
+            {t('contact.title')} <span className="text-blue-600">Abunaveed</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Get in touch with our team for lubricant solutions or excavator services
+            {t('contact.subtitle')}
           </p>
         </motion.div>
 
@@ -106,58 +109,60 @@ const ContactUs = () => {
             variants={containerVariants}
             className="bg-white rounded-xl shadow-xl p-8"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              {t('contact.formTitle')}
+            </h3>
             
             <form className="space-y-6">
               <motion.div variants={itemVariants}>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Full Name
+                  {t('contact.fullName')}
                 </label>
                 <input
                   type="text"
                   id="name"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                  placeholder="Your name"
+                  placeholder={t('contact.namePlaceholder')}
                 />
               </motion.div>
 
               <motion.div variants={itemVariants}>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email Address
+                  {t('contact.emailAddress')}
                 </label>
                 <input
                   type="email"
                   id="email"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                  placeholder="your@email.com"
+                  placeholder={t('contact.emailPlaceholder')}
                 />
               </motion.div>
 
               <motion.div variants={itemVariants}>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                  Subject
+                  {t('contact.subject')}
                 </label>
                 <select
                   id="subject"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                 >
-                  <option value="">Select inquiry type</option>
-                  <option value="lubricants">Lubricant Products</option>
-                  <option value="excavator">Excavator Team Services</option>
-                  <option value="bulk">Bulk Order Inquiry</option>
-                  <option value="other">Other Questions</option>
+                  <option value="">{t('contact.selectInquiry')}</option>
+                  <option value="lubricants">{t('contact.lubricantProducts')}</option>
+                  <option value="excavator">{t('contact.excavatorServices')}</option>
+                  <option value="bulk">{t('contact.bulkOrder')}</option>
+                  <option value="other">{t('contact.otherQuestions')}</option>
                 </select>
               </motion.div>
 
               <motion.div variants={itemVariants}>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Message
+                  {t('contact.message')}
                 </label>
                 <textarea
                   id="message"
                   rows="4"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                  placeholder="Your message..."
+                  placeholder={t('contact.messagePlaceholder')}
                 ></textarea>
               </motion.div>
 
@@ -168,7 +173,7 @@ const ContactUs = () => {
                 type="submit"
                 className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition-all"
               >
-                Send Message
+                {t('contact.sendMessage')}
               </motion.button>
             </form>
           </motion.div>
@@ -183,7 +188,9 @@ const ContactUs = () => {
               variants={containerVariants}
               className="bg-white rounded-xl shadow-xl p-8 mb-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">General Contact</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                {t('contact.generalContact')}
+              </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {contactMethods.map((method, index) => (
                   <motion.div
@@ -214,10 +221,12 @@ const ContactUs = () => {
             >
               <div className="flex items-center mb-6">
                 <MdConstruction className="text-3xl text-orange-600 mr-3" />
-                <h3 className="text-2xl font-bold text-gray-900">Excavator Team Contacts</h3>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  {t('contact.excavatorTeam')}
+                </h3>
               </div>
               <p className="text-gray-600 mb-6">
-                Direct contacts for our heavy equipment and excavation services team
+                {t('contact.excavatorDescription')}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {excavatorTeamContacts.map((contact, index) => (

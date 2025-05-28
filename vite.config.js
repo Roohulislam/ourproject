@@ -4,11 +4,16 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/',
-  assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.svg', '**/*.json'],
+  json: {
+    stringify: false // This is crucial for proper JSON parsing
+  },
+  assetsInclude: ['**/*.json'], // Explicitly include JSON files
+  server: {
+    hmr: {
+      overlay: false
+    }
+  },
   build: {
-    outDir: 'dist',
-    emptyOutDir: true,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -16,10 +21,5 @@ export default defineConfig({
         },
       },
     },
-  },
-  server: {
-    historyApiFallback: {
-      disableDotRule: true,
-    },
-  },
+  }
 });

@@ -1,60 +1,63 @@
 import { motion } from "framer-motion";
 import { FaOilCan, FaTruck, FaTools, FaCarAlt, FaCogs, FaShoppingCart, FaHeadset } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 
 const Services = () => {
+  const { t } = useTranslation();
+
   const services = [
     {
-      title: "Lubricant & Oil Distribution",
+      title: t('services.servicesList.0.title'),
       icon: <FaOilCan className="text-4xl text-blue-600" />,
       items: [
-        "Wholesale & Retail Supply of engine oils",
-        "Bulk Supply for workshops & factories",
-        "Customized Packaging solutions"
+        t('services.servicesList.0.items.0'),
+        t('services.servicesList.0.items.1'),
+        t('services.servicesList.0.items.2')
       ]
     },
     {
-      title: "Automotive & Industrial Lubricants",
+      title: t('services.servicesList.1.title'),
       icon: <FaCarAlt className="text-4xl text-blue-600" />,
       items: [
-        "Synthetic/Semi-Synthetic/Mineral oils",
-        "Specialty lubricants for marine/aviation",
-        "Industrial greases & anti-wear solutions"
+        t('services.servicesList.1.items.0'),
+        t('services.servicesList.1.items.1'),
+        t('services.servicesList.1.items.2')
       ]
     },
     {
-      title: "Oil Change & Maintenance",
+      title: t('services.servicesList.2.title'),
       icon: <FaTools className="text-4xl text-blue-600" />,
       items: [
-        "On-site oil change services",
-        "Lubrication consultancy",
-        "Preventive maintenance programs"
+        t('services.servicesList.2.items.0'),
+        t('services.servicesList.2.items.1'),
+        t('services.servicesList.2.items.2')
       ]
     },
     {
-      title: "Fleet Management Solutions",
+      title: t('services.servicesList.3.title'),
       icon: <FaTruck className="text-4xl text-blue-600" />,
       items: [
-        "Custom lubrication plans",
-        "Oil analysis & testing",
-        "Eco-friendly disposal services"
+        t('services.servicesList.3.items.0'),
+        t('services.servicesList.3.items.1'),
+        t('services.servicesList.3.items.2')
       ]
     },
     {
-      title: "Retail & E-Commerce",
+      title: t('services.servicesList.4.title'),
       icon: <FaShoppingCart className="text-4xl text-blue-600" />,
       items: [
-        "Online ordering & doorstep delivery",
-        "Loyalty programs",
-        "Subscription services"
+        t('services.servicesList.4.items.0'),
+        t('services.servicesList.4.items.1'),
+        t('services.servicesList.4.items.2')
       ]
     },
     {
-      title: "Technical Support & Training",
+      title: t('services.servicesList.5.title'),
       icon: <FaCogs className="text-4xl text-blue-600" />,
       items: [
-        "Mechanic training workshops",
-        "24/7 customer support",
-        "Technical consultations"
+        t('services.servicesList.5.items.0'),
+        t('services.servicesList.5.items.1'),
+        t('services.servicesList.5.items.2')
       ]
     }
   ];
@@ -81,14 +84,14 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className=" py-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
+    <section id="services" className="py-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Our Comprehensive Services
+            {t('services.title')}
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Delivering premium lubrication solutions for automotive and industrial needs across Pakistan
+            {t('services.subtitle')}
           </p>
         </div>
 
@@ -146,7 +149,7 @@ const Services = () => {
             whileTap={{ scale: 0.95 }}
             className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition-all duration-300"
           >
-            Explore All Services
+            {t('services.exploreButton')}
           </motion.button>
         </div>
       </div>

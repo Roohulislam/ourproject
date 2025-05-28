@@ -1,5 +1,6 @@
 import React from "react";
 import { FaFacebook, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 
 // Import placeholder images (replace with your actual images)
 import ceoImage from "/images/team/q.jpg";
@@ -8,44 +9,45 @@ import leaderImage from "/images/team/a.jpg";
 import execImage from "/images/team/k.jpg";
 
 const Team = () => {
+  const { t } = useTranslation();
+
   const teamMembers = [
     {
-      name: "Qare Aurang Zeb",
-      position: "CEO & Founder",
-      bio: "Visionary leader with 15+ years in oil industry",
+      name: t('team.ceo.name'),
+      position: t('team.ceo.position'),
+      bio: t('team.ceo.bio'),
       image: ceoImage,
       facebook: "#",
       whatsapp: "#",
       email: "mailto:ceo@abunaveed.com"
     },
     {
-      name: "Mufti Salem Malik",
-      position: "Manager",
-      bio: "Operations expert ensuring seamless workflows",
+      name: t('team.manager.name'),
+      position: t('team.manager.position'),
+      bio: t('team.manager.bio'),
       image: managerImage,
       facebook: "#",
       whatsapp: "#",
       email: "mailto:manager@abunaveed.com"
     },
     {
-      name: "Mulana Awais",
-      position: "Team Leader",
-      bio: "Technical specialist in lubricant formulations",
+      name: t('team.leader.name'),
+      position: t('team.leader.position'),
+      bio: t('team.leader.bio'),
       image: leaderImage,
       facebook: "#",
       whatsapp: "#",
       email: "mailto:leader@abunaveed.com"
     },
     {
-      name: "Kamran Khan",
-      position: "Executor Manager",
-      bio: "Logistics and supply chain professional",
+      name: t('team.exec.name'),
+      position: t('team.exec.position'),
+      bio: t('team.exec.bio'),
       image: execImage,
       facebook: "#",
       whatsapp: "#",
       email: "mailto:exec@abunaveed.com"
     },
-    
   ];
 
   return (
@@ -54,10 +56,10 @@ const Team = () => {
         {/* Team Members Section */}
         <div className="mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-3">
-            Our Team
+            {t('team.title')}
           </h2>
           <p className="text-center text-gray-600 text-sm max-w-2xl mx-auto mb-8">
-            Meet the experts driving our oil and lubricant solutions
+            {t('team.subtitle')}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -97,21 +99,21 @@ const Team = () => {
                     <a 
                       href={member.facebook} 
                       className="text-gray-800 hover:text-blue-600 transition-colors"
-                      aria-label="Facebook"
+                      aria-label={t('team.social.facebook')}
                     >
                       <FaFacebook size={16} />
                     </a>
                     <a 
                       href={`https://wa.me/${member.whatsapp}`} 
                       className="text-gray-800 hover:text-green-500 transition-colors"
-                      aria-label="WhatsApp"
+                      aria-label={t('team.social.whatsapp')}
                     >
                       <FaWhatsapp size={16} />
                     </a>
                     <a 
                       href={member.email} 
                       className="text-gray-800 hover:text-red-500 transition-colors"
-                      aria-label="Email"
+                      aria-label={t('team.social.email')}
                     >
                       <FaEnvelope size={16} />
                     </a>
