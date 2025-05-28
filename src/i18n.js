@@ -658,44 +658,34 @@ const resources = {
     }
   }
 };
-const getInitialLanguage = () => {
-  // Check for SSR (server-side rendering)
-  if (typeof window === 'undefined') return 'en';
-  
-  return localStorage.getItem('language') || 
-    (navigator.language.startsWith('ur') ? 'ur' : 'en');
-};
-
+// Initialize i18n
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: getInitialLanguage(),
+    lng: typeof window !== 'undefined' ? 
+      localStorage.getItem('language') || 
+      (navigator.language.startsWith('ur') ? 'ur' : 'en') 
+      : 'en',
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false
     },
     react: {
-      useSuspense: false // Set to true if you're using Suspense
+      useSuspense: false // Changed to false for better control
     }
   });
 
-// Sync language changes with localStorage and document direction
-i18n.on('languageChanged', (lng) => {
-  localStorage.setItem('language', lng);
-  document.body.dir = lng === 'ur' ? 'rtl' : 'ltr';
-});
-
-
-// i18n
-//   .use(initReactI18next)
-//   .init({
-//     resources,
-//     lng: 'en',
-//     fallbackLng: 'en',
-//     interpolation: {
-//       escapeValue: false
-//     }
-//   });
+// Handle language changes and direction
+if (typeof window !== 'undefined') {
+  // Set initial direction
+  document.body.dir = i18n.language === 'ur' ? 'rtl' : 'ltr';
+  
+  // Listen for language changes
+  i18n.on('languageChanged', (lng) => {
+    localStorage.setItem('language', lng);
+    document.body.dir = lng === 'ur' ? 'rtl' : 'ltr';
+  });
+}
 
 export default i18n;

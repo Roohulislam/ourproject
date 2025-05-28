@@ -19,3 +19,15 @@
   margin-right: auto;
   margin-left: 0;
 }
+/* Chrome-specific RTL fixes */
+.force-rtl {
+  direction: rtl;
+}
+
+/* Chrome font rendering fix for Urdu */
+@supports (-webkit-touch-callout: none) {
+  body[dir="rtl"] {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
