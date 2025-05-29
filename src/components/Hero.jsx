@@ -60,6 +60,18 @@ const Hero = () => {
     return '110vh';
   }, [isMobile, isTablet]);
 
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '03455000098';
+    const message = 'Hello, I would like to get more information';
+    
+    // Check if mobile device
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      window.open(`whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`);
+    } else {
+      window.open(`https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`);
+    }
+  };
+
   return (
     <section 
       className="home-page relative w-full mt-0.5 overflow-hidden"
@@ -89,7 +101,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-end px-4 sm:px-6 lg:px-8 pb-12  sm:pb-0">
+      <div className="relative z-10 h-full flex flex-col items-center justify-end px-4 sm:px-6 lg:px-8 pb-12 sm:pb-0">
         {!isMobile && (
           <motion.div 
             className="text-center w-full max-w-4xl"
@@ -119,9 +131,10 @@ const Hero = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 lg:mb-18 md:mb-18 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 text-lg"
+            className="px-8 py-3 lg:mb-18 md:mb-18 bg-blue-600 hover:bg-red-500 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 text-lg"
+            onClick={handleWhatsAppClick}
           >
-            {t('hero.ctaPrimary') || "Call to Action"}
+            {t('hero.ctaPrimary') || "Contact on WhatsApp"}
           </motion.button>
         </motion.div>
       </div>

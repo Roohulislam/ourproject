@@ -23,7 +23,7 @@ const resources = {
     "ariaLabel": "Hero carousel",
     "title": "Premium Lubricants & Excavator Services",
     "subtitle": "Trusted oil solutions for automotive and industrial applications across Pakistan",
-    "ctaPrimary": "Get Started",
+    "ctaPrimary": "Contact",
     "ctaSecondary": "Contact Team",
     "slideIndicator": "Go to slide {{number}}"
   },
@@ -349,7 +349,7 @@ const resources = {
     "ariaLabel": "ہیرو کیروسل",
     "title": "پریمیم لبریکنٹس اور ایکسکیویٹر خدمات",
     "subtitle": "پاکستان بھر میں آٹوموٹو اور صنعتی ایپلی کیشنز کے لیے قابل اعتماد تیل کے حل",
-    "ctaPrimary": "شروع کریں",
+    "ctaPrimary": "ہم سے رابطہ کریں",
     "ctaSecondary": "ٹیم سے رابطہ کریں",
     "slideIndicator": "سلائیڈ {{number}} پر جائیں"
   },
