@@ -28,7 +28,7 @@ const Footer = () => {
           <div className="flex flex-col items-start">
             <div className="flex items-center mb-4">
               <img 
-                src="/src/components/Navbar/Abunaveedlogo1.png" 
+                src="/images/Abunaveedlogo.png" 
                 alt={t('footer.logoAlt')} 
                 className="h-12 w-auto"
                 loading="lazy"
