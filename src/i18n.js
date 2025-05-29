@@ -1,5 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import Backend from "i18next-http-backend";
+import LanguageDetector from "i18next-browser-languagedetector";
 // In your i18n configuration file
 
 // Directly include translations instead of importing
@@ -658,18 +660,22 @@ const resources = {
     }
   }
 };
-// Initialize i18n
+
 i18n
+  // Use the XHR backend for loading translations
+  .use(Backend)
+  // Detect user language
+  .use(LanguageDetector)
+  // Pass the i18n instance to react-i18next
   .use(initReactI18next)
+  // Initialize i18next
   .init({
+    load: "languageOnly", // Only load the language, not the region
     resources,
-    lng: typeof window !== 'undefined' ? 
-      localStorage.getItem('language') || 
-      (navigator.language.startsWith('ur') ? 'ur' : 'en') 
-      : 'en',
-    fallbackLng: 'en',
+    fallbackLng: "en", // Changed from "de" to "en" as your default
+    debug: true,
     interpolation: {
-      escapeValue: false
+      escapeValue: false // Not needed for React as it escapes by default
     },
     react: {
       useSuspense: false // Changed to false for better control
@@ -687,5 +693,6 @@ if (typeof window !== 'undefined') {
     document.body.dir = lng === 'ur' ? 'rtl' : 'ltr';
   });
 }
+
 
 export default i18n;
