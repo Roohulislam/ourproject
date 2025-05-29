@@ -10,6 +10,7 @@ import Location from './components/Location';
 import Products from './components/Products/Products';
 import Services from './components/Services/Service';
 import Whatsapp from './components/Whatsapp';
+import ViewAllProducts from './components/Products/ViewAllProducts';
 
 function App() {
   const { i18n } = useTranslation();
@@ -31,6 +32,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/allproducts" element={<ViewAllProducts/> } />
+
             <Route path="/products" element={<Products />} />
             <Route path="/locations" element={<Location />} />
             <Route path="/aboutus" element={<AboutUs />} />
