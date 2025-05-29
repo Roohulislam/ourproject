@@ -8,7 +8,6 @@ const Hero = () => {
   const [isTablet, setIsTablet] = useState(false);
   const { t } = useTranslation();
 
-  // Check for viewport on mount and resize
   useEffect(() => {
     const checkViewport = () => {
       const width = window.innerWidth;
@@ -43,13 +42,11 @@ const Hero = () => {
     "/images/heroimgmobail/99.png",
   ];
 
-  // Use appropriate images based on viewport
   const backgroundImages = useMemo(() => {
     if (isMobile === null) return desktopImages;
     return isMobile ? mobileImages : desktopImages;
   }, [isMobile]);
 
-  // Auto slide with pause on hover
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % backgroundImages.length);
@@ -57,7 +54,6 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
 
-  // Dynamic height calculation
   const heroHeight = useMemo(() => {
     if (isMobile) return '50vh';
     if (isTablet) return '100vh';
@@ -93,42 +89,40 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-end pb-16 sm:justify-center sm:items-end sm:pb-0 px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center sm:text-right w-full max-w-4xl"
+      <div className="relative z-10 h-full flex flex-col items-center justify-end px-4 sm:px-6 lg:px-8 pb-12  sm:pb-0">
+        {!isMobile && (
+          <motion.div 
+            className="text-center w-full max-w-4xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Heading - Only shown on desktop/tablet */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-80 sm:mb-6 leading-tight">
+              {t('hero.title') || "Your Compelling Headline Here"}
+            </h1>
+            
+            {/* Paragraph - Only shown on desktop/tablet */}
+            <p className="text-lg sm:text-2xl md:text-3xl text-white mb-8 sm:mb-10 max-w-2xl mx-auto">
+              {t('hero.subtitle') || "A descriptive paragraph that explains your value proposition and engages visitors to take action."}
+            </p>
+          </motion.div>
+        )}
+        
+        {/* Button - Shown on all devices */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full flex justify-center mb-2"
         >
-          {!isMobile && (
-            <>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                {t('hero.title')}
-              </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-white max-w-2xl mx-auto sm:ml-auto mb-6 sm:mb-8">
-                {t('hero.subtitle')}
-              </p>
-            </>
-          )}
-          
-          <div className="flex flex-col sm:flex-row gap-2 justify-center sm:justify-end">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-1 sm:px-8 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
-            >
-              {t('hero.ctaPrimary')}
-            </motion.button>
-            {!isMobile && (
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-1 sm:px-8 sm:py-4 bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
-              >
-                {t('hero.ctaSecondary')}
-              </motion.button>
-            )}
-          </div>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 lg:mb-18 md:mb-18 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 text-lg"
+          >
+            {t('hero.ctaPrimary') || "Call to Action"}
+          </motion.button>
         </motion.div>
       </div>
 
