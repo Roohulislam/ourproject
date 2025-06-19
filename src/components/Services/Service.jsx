@@ -83,6 +83,11 @@ const Services = () => {
     }
   };
 
+  const handleWhatsAppClick = () => {
+    // You can add additional logic here if needed before opening WhatsApp
+    window.open('https://wa.me/923488560875', '_blank');
+  };
+
   return (
     <section id="services" className="py-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
       <div className="max-w-7xl mx-auto">
@@ -111,10 +116,10 @@ const Services = () => {
             >
               <div className="p-8">
                 <div className="flex items-center mb-6">
-                  <div className="mr-4 p-3 bg-blue-50 rounded-full">
+                  <div className="mr-2 p-3 bg-blue-50 rounded-full">
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <h3 className="text-xl mx-4 font-semibold text-gray-900">
                     {service.title}
                   </h3>
                 </div>
@@ -143,8 +148,9 @@ const Services = () => {
           ))}
         </motion.div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-8 text-center">
           <motion.button
+            onClick={handleWhatsAppClick}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition-all duration-300"

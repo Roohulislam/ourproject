@@ -2,9 +2,14 @@ import { motion } from "framer-motion";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaHardHat, FaTruck, FaWhatsapp } from "react-icons/fa";
 import { MdConstruction, MdSupportAgent } from "react-icons/md";
 import { useTranslation } from 'react-i18next';
+import { useRef, useState } from 'react';
+import emailjs from "emailjs-com";
 
 const ContactUs = () => {
   const { t } = useTranslation();
+  const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const contactMethods = [
     {
@@ -22,7 +27,7 @@ const ContactUs = () => {
     {
       icon: <FaEnvelope className="text-2xl text-blue-600" />,
       title: t('contact.emailUs'),
-      contact: "info@abunaveed.com",
+      contact: "fawadkanai96@gmail.com",
       subtitle: t('contact.responseTime')
     },
     {
@@ -37,25 +42,25 @@ const ContactUs = () => {
     {
       icon: <MdConstruction className="text-2xl text-orange-500" />,
       title: t('contact.excavatorLead'),
-      contact: "+92 300 1234567",
+      contact: "+92 355 5700098",
       subtitle: t('contact.siteOperations')
     },
     {
       icon: <FaHardHat className="text-2xl text-orange-500" />,
       title: t('contact.equipmentSupport'),
-      contact: "+92 300 7654321",
+      contact: "+92 355 5700098",
       subtitle: t('contact.maintenance')
     },
     {
       icon: <FaTruck className="text-2xl text-orange-500" />,
       title: t('contact.fuelDelivery'),
-      contact: "+92 300 9876543",
+      contact: "+92 355 5700098",
       subtitle: t('contact.fuelSupply')
     },
     {
       icon: <MdSupportAgent className="text-2xl text-orange-500" />,
       title: t('contact.emergency'),
-      contact: "+92 300 1122334",
+      contact: "+92 355 5700098",
       subtitle: t('contact.afterHours')
     }
   ];
@@ -79,6 +84,36 @@ const ContactUs = () => {
         duration: 0.6
       }
     }
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    emailjs.sendForm(
+      'service_ljdwip8', // Your EmailJS Service ID
+      'template_typyqtd', // Your EmailJS Template ID
+      form.current,
+      'CXRLDwrWF_cRfCSz5' // Your EmailJS Public Key
+    )
+    .then((result) => {
+      console.log(result.text);
+      setSubmitStatus({
+        success: true,
+        message: t('contact.successMessage') || 'Message sent successfully!'
+      });
+      form.current.reset();
+    }, (error) => {
+      console.log(error.text);
+      setSubmitStatus({
+        success: false,
+        message: t('contact.errorMessage') || 'Failed to send message. Please try again.'
+      });
+    })
+    .finally(() => {
+      setIsSubmitting(false);
+    });
   };
 
   return (
@@ -113,7 +148,7 @@ const ContactUs = () => {
               {t('contact.formTitle')}
             </h3>
             
-            <form className="space-y-6">
+            <form ref={form} onSubmit={sendEmail} className="space-y-6">
               <motion.div variants={itemVariants}>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   {t('contact.fullName')}
@@ -121,8 +156,10 @@ const ContactUs = () => {
                 <input
                   type="text"
                   id="name"
+                  name="user_name"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                   placeholder={t('contact.namePlaceholder')}
+                  required
                 />
               </motion.div>
 
@@ -133,8 +170,10 @@ const ContactUs = () => {
                 <input
                   type="email"
                   id="email"
+                  name="user_email"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                   placeholder={t('contact.emailPlaceholder')}
+                  required
                 />
               </motion.div>
 
@@ -144,7 +183,9 @@ const ContactUs = () => {
                 </label>
                 <select
                   id="subject"
+                  name="subject"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  required
                 >
                   <option value="">{t('contact.selectInquiry')}</option>
                   <option value="lubricants">{t('contact.lubricantProducts')}</option>
@@ -160,20 +201,38 @@ const ContactUs = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows="4"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                   placeholder={t('contact.messagePlaceholder')}
+                  required
                 ></textarea>
               </motion.div>
+
+              {/* Status Message */}
+              {submitStatus && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`p-3 rounded-lg ${
+                    submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                  }`}
+                >
+                  {submitStatus.message}
+                </motion.div>
+              )}
 
               <motion.button
                 variants={itemVariants}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition-all"
+                disabled={isSubmitting}
+                className={`w-full px-6 py-3 text-white font-semibold rounded-lg shadow-md transition-all ${
+                  isSubmitting ? 'bg-blue-400' : 'bg-blue-600 hover:bg-blue-700'
+                }`}
               >
-                {t('contact.sendMessage')}
+                {isSubmitting ? t('contact.sending') : t('contact.sendMessage')}
               </motion.button>
             </form>
           </motion.div>

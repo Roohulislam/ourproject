@@ -8,8 +8,8 @@ const Footer = () => {
     { name: t('footer.links.home'), href: "/" },
     { name: t('footer.links.products'), href: "/products" },
     { name: t('footer.links.services'), href: "/services" },
-    { name: t('footer.links.about'), href: "/about" },
-    { name: t('footer.links.contact'), href: "/contact" }
+    { name: t('footer.links.about'), href: "/aboutus" },
+    { name: t('footer.links.contact'), href: "/contactus" }
   ];
 
   const services = [
@@ -26,11 +26,11 @@ const Footer = () => {
           
           {/* Logo and About */}
           <div className="flex flex-col items-start">
-            <div className="flex items-center mb-4">
+            <div className="flex items-center mb-2">
               <img 
                 src="/images/Abunaveedlogo.png" 
                 alt={t('footer.logoAlt')} 
-                className="h-12 w-auto"
+                className="h-48 ml-24 w-auto"
                 loading="lazy"
               />
               <span className="ml-2 text-xl font-bold">{t('footer.companyName')}</span>

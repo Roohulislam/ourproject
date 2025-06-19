@@ -17,8 +17,8 @@ const Team = () => {
       position: t('team.ceo.position'),
       bio: t('team.ceo.bio'),
       image: ceoImage,
-      facebook: "#",
-      whatsapp: "#",
+      facebook: "https://www.facebook.com/share/1AYHbX2e8M/",
+      whatsapp: "+923455000098",
       email: "mailto:ceo@abunaveed.com"
     },
     {
@@ -26,8 +26,8 @@ const Team = () => {
       position: t('team.manager.position'),
       bio: t('team.manager.bio'),
       image: managerImage,
-      facebook: "#",
-      whatsapp: "#",
+      facebook: "https://www.facebook.com/share/1CqKof986f/",
+      whatsapp: "+923458869670",
       email: "mailto:manager@abunaveed.com"
     },
     {
@@ -35,8 +35,8 @@ const Team = () => {
       position: t('team.leader.position'),
       bio: t('team.leader.bio'),
       image: leaderImage,
-      facebook: "#",
-      whatsapp: "#",
+      facebook: "https://www.facebook.com/share/18v5uKW3kV/",
+      whatsapp: "+923485312654",
       email: "mailto:leader@abunaveed.com"
     },
     {

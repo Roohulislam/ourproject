@@ -256,7 +256,7 @@ const Products = () => {
         {/* View All Button */}
         <div className="text-center mt-6 sm:mt-8">
           <button
-            className="px-4 py-2 sm:px-6 sm:py-2.5 bg-white border border-blue-600 text-blue-600 hover:bg-blue-50 rounded-md text-sm sm:text-base transition font-medium"
+            className="px-4 py-2 sm:px-6 sm:py-2.5 bg-blue-500 text-white border border-blue-600   rounded-md text-sm sm:text-base transition font-medium"
             onClick={() => navigate('/allproducts')}
           >
             {t('products.viewAllProducts')}

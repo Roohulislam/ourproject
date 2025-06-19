@@ -48,10 +48,11 @@ const resources = {
     "viewAll": "View all products",
     "viewAllProducts": "View All Products",
     "errorLoading": "Error loading products:"
-  }, "services": {
+  },
+   "services": {
     "title": "Our Comprehensive Services",
     "subtitle": "Delivering premium lubrication solutions for automotive and industrial needs across Pakistan",
-    "exploreButton": "Explore All Services",
+    "exploreButton": "For more details contact us",
     "servicesList": [
       {
         "title": "Lubricant & Oil Distribution",
@@ -202,7 +203,7 @@ const resources = {
   },
   "footer": {
     "logoAlt": "Abunaveed Oil and Lubricant Agency Logo",
-    "companyName": "Abunaveed",
+    "companyName": "",
     "description": "Your trusted partner for premium lubricants and excavator services across Pakistan.",
     "social": {
       "facebook": "https://facebook.com/abunaveed",
@@ -378,7 +379,7 @@ const resources = {
   "services": {
     "title": "ہماری جامع خدمات",
     "subtitle": "پاکستان بھر میں آٹوموٹو اور صنعتی ضروریات کے لیے پریمیم لبریکیشن حل فراہم کرنا",
-    "exploreButton": "تمام خدمات دریافت کریں",
+    "exploreButton": "مزید تفصیلات کے لئے ہم سے رابطہ کریں",
     "servicesList": [
       {
         "title": "لبریکنٹ اور تیل کی تقسیم",
@@ -529,7 +530,7 @@ const resources = {
   },
     "footer": {
     "logoAlt": "ابو نویڈ آئل اینڈ لبریکنٹ ایجنسی لوگو",
-    "companyName": "ابو نویڈ",
+    "companyName": "",
     "description": "پاکستان بھر میں پریمیم لبریکنٹس اور ایکسکیویٹر خدمات کا آپ کا قابل اعتماد پارٹنر۔",
     "social": {
       "facebook": "https://facebook.com/abunaveed",
