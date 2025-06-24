@@ -222,7 +222,7 @@ const resources = {
     "contact": {
       "title": "Contact Us",
       "phone": "+92 345 5000098",
-      "email": "info@abunaveed.com",
+      "email": "fawadkanai96@gmail.com",
       "address": "Abu naveed oil Agency, Chilās, 05812"
     },
     "services": {
@@ -549,7 +549,7 @@ const resources = {
     "contact": {
       "title": "ہم سے رابطہ کریں",
       "phone": "+92 345 5000098",
-      "email": "info@abunaveed.com",
+      "email": "fawadkanai96@gmail.com",
       "address": "ابو نویڈ آئل ایجنسی، چلاس، 05812"
     },
     "services": {

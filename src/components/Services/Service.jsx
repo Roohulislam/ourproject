@@ -85,7 +85,7 @@ const Services = () => {
 
   const handleWhatsAppClick = () => {
     // You can add additional logic here if needed before opening WhatsApp
-    window.open('https://wa.me/923488560875', '_blank');
+    window.open('https://wa.me/92345500098', '_blank');
   };
 
   return (
