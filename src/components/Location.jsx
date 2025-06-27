@@ -19,7 +19,7 @@ const Location = () => {
     whatsapp: t('location.whatsapp'),
     hours: t('location.hours'),
     coordinates: t('location.coordinates'),
-    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.150834689866!2d74.108550!3d35.428516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDI1JzQyLjYiTiA3NMowNic0Ni4xIkU!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d316.95669754041603!2d74.10782830258961!3d35.42866734124945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d35.4286673!2d74.1083201!4m5!1s0x38e70501044fbb97%3A0xe469d79547d8d1b!2zQzRINSs5QzcsIE4tMzUsIENoaWzEgXMsIDE0MTAw!3m2!1d35.428564699999995!2d74.10844809999999!5e1!3m2!1sen!2s!4v1751054171362!5m2!1sen!2s"
   };
 
   return (
