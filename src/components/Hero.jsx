@@ -84,7 +84,7 @@ const Hero = () => {
 
   // Calculate hero section height
   const heroHeight = useMemo(() => {
-    if (isMobile) return '80vh';
+    if (isMobile) return '60vh';
     if (isTablet) return '100vh';
     return '110vh';
   }, [isMobile, isTablet]);
@@ -147,7 +147,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-end px-4 sm:px-6 lg:px-8 pb-12 sm:pb-0">
+      <div className="relative z-10 h-full flex flex-col items-center justify-end px-4 sm:px-6 lg:px-8 pb-2 sm:pb-0">
         {/* Desktop/Tablet Content */}
         {!isMobile && (
           <motion.div 
@@ -171,7 +171,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full flex justify-center mb-2 sm:mb-0.5"
+          className="w-full flex justify-center mb-2 "
         >
             <motion.button
             whileHover={{ scale: 1.05 }}
