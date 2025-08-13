@@ -3,23 +3,38 @@ import { motion } from "framer-motion";
 import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+  // Initialize state with proper default values
+  const [windowSize, setWindowSize] = useState({
+    width: typeof window !== 'undefined' ? window.innerWidth : 1200,
+    height: typeof window !== 'undefined' ? window.innerHeight : 800,
+  });
+
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMobile, setIsMobile] = useState(null);
-  const [isTablet, setIsTablet] = useState(false);
   const { t } = useTranslation();
 
+  // Calculate device type based on window size
+  const isMobile = useMemo(() => windowSize.width <= 640, [windowSize.width]);
+  const isTablet = useMemo(() => windowSize.width > 640 && windowSize.width <= 1024, [windowSize.width]);
+
   useEffect(() => {
-    const checkViewport = () => {
-      const width = window.innerWidth;
-      setIsMobile(width <= 640);
-      setIsTablet(width > 640 && width <= 1024);
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
     };
+
+    // Set initial size
+    handleResize();
     
-    checkViewport();
-    window.addEventListener('resize', checkViewport);
-    return () => window.removeEventListener('resize', checkViewport);
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Image arrays
   const desktopImages = [
     "/images/heroimg/1.jpg",
     "/images/heroimg/2.jpg",
@@ -31,22 +46,35 @@ const Hero = () => {
   ];
 
   const mobileImages = [
+    "/images/heroimgmobail/1.png",
+    "/images/heroimgmobail/2.png",
+    "/images/heroimgmobail/3.png",
+    "/images/heroimgmobail/4.png",
+    "/images/heroimgmobail/5.png",
+    "/images/heroimgmobail/6.png",
+    "/images/heroimgmobail/7.png",
+    "/images/heroimgmobail/8.png",
+    "/images/heroimgmobail/9.png",
+    "/images/heroimgmobail/10.png",
     "/images/heroimgmobail/11.png",
-    "/images/heroimgmobail/22.png",
-    "/images/heroimgmobail/33.png",
-    "/images/heroimgmobail/44.png",
-    "/images/heroimgmobail/55.png",
-    "/images/heroimgmobail/66.png",
-    "/images/heroimgmobail/77.png",
-    "/images/heroimgmobail/88.png",
-    "/images/heroimgmobail/99.png",
+    "/images/heroimgmobail/12.png",
+    "/images/heroimgmobail/13.png",
+    "/images/heroimgmobail/14.png",
+    "/images/heroimgmobail/15.png",
+    "/images/heroimgmobail/16.png",
+    "/images/heroimgmobail/17.png",
+    "/images/heroimgmobail/18.png",
+    "/images/heroimgmobail/19.png",
+    "/images/heroimgmobail/20.png",
+    "/images/heroimgmobail/21.png",
   ];
 
+  // Select appropriate images based on device
   const backgroundImages = useMemo(() => {
-    if (isMobile === null) return desktopImages;
     return isMobile ? mobileImages : desktopImages;
   }, [isMobile]);
 
+  // Auto-rotate slides
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % backgroundImages.length);
@@ -54,23 +82,41 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
 
+  // Calculate hero section height
   const heroHeight = useMemo(() => {
-    if (isMobile) return '50vh';
+    if (isMobile) return '80vh';
     if (isTablet) return '100vh';
     return '110vh';
   }, [isMobile, isTablet]);
 
+  // WhatsApp click handler
   const handleWhatsAppClick = () => {
     const phoneNumber = '03455000098';
     const message = 'Hello, I would like to get more information';
     
-    // Check if mobile device
-    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const isAndroid = /Android/.test(navigator.userAgent);
+
+    if (isIOS || isAndroid) {
       window.open(`whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`);
     } else {
       window.open(`https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`);
     }
   };
+
+  // Preload images for better performance
+  useEffect(() => {
+    const preloadImages = (urls) => {
+      urls.forEach(url => {
+        const img = new Image();
+        img.src = url;
+      });
+    };
+
+    // Preload first 3 images of each set
+    preloadImages(desktopImages.slice(0, 3));
+    preloadImages(mobileImages.slice(0, 3));
+  }, []);
 
   return (
     <section 
@@ -78,7 +124,7 @@ const Hero = () => {
       style={{ height: heroHeight }}
       aria-label={t('hero.ariaLabel')}
     >
-      {/* Background images */}
+      {/* Background images with transition */}
       <div className="absolute inset-0 z-0">
         {backgroundImages.map((image, index) => (
           <div
@@ -102,6 +148,7 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-end px-4 sm:px-6 lg:px-8 pb-12 sm:pb-0">
+        {/* Desktop/Tablet Content */}
         {!isMobile && (
           <motion.div 
             className="text-center w-full max-w-4xl"
@@ -109,30 +156,29 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Heading - Only shown on desktop/tablet */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-80 sm:mb-6 leading-tight">
               {t('hero.title') || "Your Compelling Headline Here"}
             </h1>
             
-            {/* Paragraph - Only shown on desktop/tablet */}
             <p className="text-lg sm:text-2xl md:text-3xl text-white mb-8 sm:mb-10 max-w-2xl mx-auto">
-              {t('hero.subtitle') || "A descriptive paragraph that explains your value proposition and engages visitors to take action."}
+              {t('hero.subtitle') || "A descriptive paragraph that explains your value proposition."}
             </p>
           </motion.div>
         )}
         
-        {/* Button - Shown on all devices */}
+        {/* CTA Button - Visible on all devices */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full flex justify-center mb-2"
+          className="w-full flex justify-center mb-2 sm:mb-0.5"
         >
-          <motion.button
+            <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 lg:mb-18 md:mb-18 bg-blue-600 hover:bg-red-500 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 text-lg"
+            className={`px-6 py-2 ${isMobile ? 'text-sm' : 'text-base'}  bg-blue-600 hover:bg-red-500 text-white font-semibold rounded-lg shadow-lg transition-all duration-300`}
             onClick={handleWhatsAppClick}
+            aria-label={t('hero.ctaAriaLabel') || "Contact via WhatsApp"}
           >
             {t('hero.ctaPrimary') || "Contact on WhatsApp"}
           </motion.button>
@@ -140,21 +186,7 @@ const Hero = () => {
       </div>
 
       {/* Slide indicators */}
-      <div className={`absolute ${isMobile ? 'bottom-8' : 'bottom-12'} left-0 right-0 flex justify-center space-x-2 z-10`}>
-        {backgroundImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`${isMobile ? 'w-2.5 h-2.5' : 'w-3 h-3'} rounded-full transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white ${
-              index === currentSlide
-                ? "bg-white " + (isMobile ? 'w-6' : 'w-8')
-                : "bg-white/50 hover:bg-white/75"
-            }`}
-            aria-label={t('hero.slideIndicator', { number: index + 1 })}
-            aria-current={index === currentSlide}
-          />
-        ))}
-      </div>
+    
     </section>
   );
 };
